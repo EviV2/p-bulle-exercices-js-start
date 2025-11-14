@@ -28,7 +28,7 @@
  */
 
 export function canExecuteFastAttack(knightIsAwake) {
-return !knightIsAwake
+  return !knightIsAwake
 
 
 }
@@ -74,5 +74,5 @@ export function canFreePrisoner(
   prisonerIsAwake,
   petDogIsPresent,
 ) {
-return (petDogIsPresent && !archerIsAwake || !petDogIsPresent && prisonerIsAwake && !archerIsAwake && !knightIsAwake)
+  return (petDogIsPresent && !archerIsAwake || !petDogIsPresent && prisonerIsAwake && !archerIsAwake && !knightIsAwake)
 }
