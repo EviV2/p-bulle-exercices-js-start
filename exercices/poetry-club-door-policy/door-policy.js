@@ -27,6 +27,7 @@
  * @returns {string}
  */
 export function frontDoorResponse(line) {
+  line.toUpperCase;
   return line[0];
 }
 
@@ -38,9 +39,7 @@ export function frontDoorResponse(line) {
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-   word.toLowerCase;
-   word[0].toUpperCase;
-   return word;
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
 /**
@@ -51,7 +50,11 @@ export function frontDoorPassword(word) {
  * @returns {string}
  */
 export function backDoorResponse(line) {
-  return line[line.length]
+  line = line.trim()
+  line.toUpperCase;
+
+  return line[line.length - 1]
+
 }
 
 /**
@@ -62,7 +65,5 @@ export function backDoorResponse(line) {
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-   word.toLowerCase;
-   word[0].toUpperCase;
-   return word + ", please";
+  return word[0].charAt(0).toUpperCase() + word.slice(1).toLowerCase() + ", please";
 }
