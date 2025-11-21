@@ -35,11 +35,10 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  let input1 = String(input)
-  if (input1 === "" || input1 === null || input1 === undefined) {
+  if (input === "" || input === null || input === undefined) {
     return "Required field"
   }
-  else if (input1 == '0') {
+  else if (!Number(input)) {
     return "Must be a number besides 0"
   }
   else {
