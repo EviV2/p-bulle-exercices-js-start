@@ -1,6 +1,5 @@
 /// <reference path="./global.d.ts" />
 // @ts-check
-
 /**
  * Creates a new visitor.
  *
@@ -17,7 +16,6 @@ export function createVisitor(name, age, ticketId) {
   }
   return Visitor
 }
-
 /**
  * Revokes a ticket for a visitor.
  *
@@ -28,7 +26,6 @@ export function revokeTicket(visitor) {
   visitor.ticketId = null
   return visitor
 }
-
 /**
  * Determines the status a ticket has in the ticket tracking object.
  *
@@ -37,22 +34,18 @@ export function revokeTicket(visitor) {
  * @returns {string} ticket status
  */
 export function ticketStatus(tickets, ticketId) {
+  let a = tickets[ticketId]
 
-  const Visitor = {
-    tickets: ticketId
-  }
-
-  if (tickets.ticketId === null) {
+  if (a === null) {
     return "not sold"
   }
-  else if (tickets.ticketId === undefined) {
+  else if (a === undefined) {
     return "unknown ticket id"
   }
   else {
-    return "sold to " + tickets.ticketId
+    return "sold to " + a
   }
 }
-
 /**
  * Determines the status a ticket has in the ticket tracking object
  * and returns a simplified status message.
@@ -62,9 +55,15 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  throw new Error('Remove this line and implement the function');
-}
+  let a = tickets[ticketId]
 
+  if (a === null || a === undefined) {
+    return "invalid ticket !!!"
+  }
+  else {
+    return a
+  }
+}
 /**
  * Determines the version of the GTC that was signed by the visitor.
  *
@@ -72,5 +71,10 @@ export function simpleTicketStatus(tickets, ticketId) {
  * @returns {string | undefined} version
  */
 export function gtcVersion(visitor) {
-  throw new Error('Remove this line and implement the function');
+  if (visitor.gtc === null || visitor.gtc === undefined) {
+    return
+  }
+  else {
+    return visitor.gtc.version
+  }
 }
