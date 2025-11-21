@@ -17,6 +17,7 @@ import { order } from './grocer';
  */
 export function onSuccess() {
   // implement the onSuccess callback to call notify with a success message
+  return notify({ "message": "SUCCESS" })
 }
 
 /**
@@ -24,6 +25,7 @@ export function onSuccess() {
  */
 export function onError() {
   // implement the onError callback to call notify with an error message
+  return notify({ "message": "ERROR" })
 }
 
 /**
