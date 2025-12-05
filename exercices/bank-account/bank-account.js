@@ -4,35 +4,58 @@
 //
 
 export class BankAccount {
-  balance;
-  isDeposing;
-  isWithdrawing;
-  isClosed;
+  Balance;
+  isClosed = true;
   constructor() {
-    balance = 0;
+
   }
 
   open() {
-    this.balance = 0;
+    if (this.isClosed == true) {
+      this.Balance = 0;
+      this.isClosed = false;
+    }
+    else {
+      throw new ValueError()
+    }
   }
 
   close() {
-    isClosed = true;
+    if (this.isClosed == false) {
+      this.isClosed = true;
+    }
+
+    else {
+      throw new ValueError()
+    }
   }
 
   deposit(number) {
-    isDeposing = true;
-    this.balance += number
-
+    if (!this.isClosed && number >= 0) {
+      this.Balance += number
+    }
+    else {
+      throw new ValueError()
+    }
   }
 
   withdraw(number) {
-    isWithdrawing = true
-    this.balance -= number
+    if (!this.isClosed && number >= 0 && !(number > this.balance) && number !== null) {
+      this.Balance -= number
+    }
+    else {
+      throw new ValueError()
+    }
   }
 
   get balance() {
-    return this.balance;
+    if (!this.isClosed) {
+      return this.Balance;
+    }
+    throw new ValueError();
+
+
+
   }
 }
 
