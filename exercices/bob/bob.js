@@ -4,5 +4,19 @@
 //
 
 export const hey = (message) => {
-  throw new Error('Remove this line and implement the function');
+  let msg = "";
+  var regex = /[A-Z]/;
+  msg = message.trim()
+
+  if (msg === undefined || msg === null || msg === "")
+    return "Fine. Be that way!"
+  else if (msg[msg.length - 1] == "?" && msg == msg.toUpperCase() && regex.test(msg))
+    return "Calm down, I know what I'm doing!"
+  else if (msg[msg.length - 1] == "?")
+    return "Sure."
+  else if (msg == msg.toUpperCase() && regex.test(msg))
+    return "Whoa, chill out!"
+
+  else
+    return "Whatever."
 };
