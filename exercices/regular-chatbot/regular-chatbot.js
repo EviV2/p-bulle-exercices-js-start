@@ -8,7 +8,9 @@
  */
 
 export function isValidCommand(command) {
-  throw new Error('Remove this line and implement the function');
+  const regex = /chatbot/i
+
+  return regex.test(command) && regex.test(command)
 }
 
 /**
