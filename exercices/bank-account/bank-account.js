@@ -11,7 +11,7 @@ export class BankAccount {
   }
 
   open() {
-    if (this.isClosed == true) {
+    if (this.isClosed) {
       this.Balance = 0;
       this.isClosed = false;
     }
