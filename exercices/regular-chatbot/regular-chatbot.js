@@ -8,9 +8,8 @@
  */
 
 export function isValidCommand(command) {
-  const regex = /chatbot/i
-
-  return regex.test(command) && regex.test(command)
+  const regex = /^chatbot/i
+  return regex.test(command)
 }
 
 /**
@@ -20,7 +19,9 @@ export function isValidCommand(command) {
  * @returns {string} The message without the emojis encryption
  */
 export function removeEmoji(message) {
-  throw new Error('Remove this line and implement the function');
+  const regex = /emoji[0-9]+/g
+  const a = message.replace(regex, "")
+  return a;
 }
 
 /**
@@ -30,7 +31,14 @@ export function removeEmoji(message) {
  * @returns {string} the Chatbot response to the phone Validation
  */
 export function checkPhoneNumber(number) {
-  throw new Error('Remove this line and implement the function');
+  let rep = `Oops, it seems like I can't reach out to ${number}`
+  //Crédit chat gpt + moi (Pret a d'éventuel question!!)
+  const regex = /^\(\+\d{2}\) \d{3}-\d{3}-\d{3}$/
+
+  if (regex.test(number)) {
+    rep = "Thanks! You can now download me to your phone."
+  }
+  return rep
 }
 
 /**
@@ -40,7 +48,10 @@ export function checkPhoneNumber(number) {
  * @returns {string[] | null} all the possible URL's that the user may have answered
  */
 export function getURL(userInput) {
-  throw new Error('Remove this line and implement the function');
+  //Aide de stackOverflow! https://stackoverflow.com/questions/11724663/regex-for-simple-urls (Simplifier)
+  const regex = /[a-zA-Z]+\.[a-zA-Z]+/g;
+  const site = userInput.match(regex)
+  return site
 }
 
 /**
@@ -50,5 +61,10 @@ export function getURL(userInput) {
  * @returns {string} Greeting from the chatbot
  */
 export function niceToMeetYou(fullName) {
-  throw new Error('Remove this line and implement the function');
+
+  //Aide de chatGPT mais je peux l'expliquer!!
+  const regex = /^[a-zA-Z]+,$/
+  let name = fullName.replace(/([a-zA-Z]+), ([a-zA-Z]+)/, "Nice to meet you, $2 $1");
+  return name
+
 }
