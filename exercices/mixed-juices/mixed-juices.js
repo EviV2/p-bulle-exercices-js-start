@@ -12,24 +12,27 @@
  */
 export function timeToMixJuice(name) {
   let time = 0;
-  if (name == "Pure Strawberry Joy") {
-    time = 0.5
-  }
-  else if (name == "Energizer" || name == "Green Garden") {
-    time = 1.5
-  }
-  else if (name == "Tropical Island") {
-    time = 3
-  }
-  else if (name == "All or Nothing") {
-    time = 5
-  }
-  else {
-    time = 2.5
+  switch (name) {
+    case "Pure Strawberry Joy":
+      time = 0.5
+      break;
+    case "Energizer":
+    case "Green Garden":
+      time = 1.5;
+      break;
+    case "Tropical Island":
+      time = 3;
+      break;
+    case "All or Nothing":
+      time = 5;
+      break;
+    default:
+      time = 2.5;
+
   }
   return time;
-}
 
+}
 /**
  * Calculates the number of limes that need to be cut
  * to reach a certain supply.
@@ -42,21 +45,23 @@ export function limesToCut(wedgesNeeded, limes) {
   let i = 0
   let cut = 0;
   while (wedgesNeeded > i) {
-    if (limes[0] == "small") {
-      i += 6
+    switch (limes[0]) {
+      case "small":
+        i += 6
+        cut++;
+        break;
+      case "medium":
+        i += 8
+        cut++;
+        break;
+      case "large":
+        i += 10
+        cut++;
+        break;
+      default:
+        return cut
     }
-    else if (limes[0] == "medium") {
-      i += 8
-    }
-    else if (limes[0] == "large") {
-      i += 10
-    }
-    else {
-      break;
-    }
-
     limes.shift();
-    cut++;
 
   }
   return cut;
@@ -73,14 +78,9 @@ export function remainingOrders(timeLeft, orders) {
   const REP = [];
   do {
     //Break la boucle si le temps calculer est négatif
-
     timeLeft -= timeToMixJuice(orders[0]);
-    REP.push(orders[0])
     orders.shift();
-    if (orders.length == 0) {
-      break;
-    }
-  } while (timeLeft > 0)
+  } while (timeLeft > 0 && orders.length != 0)
 
-  return REP
+  return orders
 }
