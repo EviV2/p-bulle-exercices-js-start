@@ -63,7 +63,6 @@ export function getURL(userInput) {
 export function niceToMeetYou(fullName) {
 
   //Aide de chatGPT mais je peux l'expliquer!!
-  const regex = /^[a-zA-Z]+,$/
   let name = fullName.replace(/([a-zA-Z]+), ([a-zA-Z]+)/, "Nice to meet you, $2 $1");
   return name
 
