@@ -12,24 +12,24 @@ describe('Grade School', () => {
     expect(school.roster()).toEqual([]);
   });
 
-  xtest('Add a student', () => {
+  test('Add a student', () => {
     expect(school.add('Aimee', 2)).toEqual(true);
   });
 
-  xtest('Student is added to the roster', () => {
+  test('Student is added to the roster', () => {
     school.add('Aimee', 2);
 
     const expectedDb = ['Aimee'];
     expect(school.roster()).toEqual(expectedDb);
   });
 
-  xtest('Adding multiple students in the same grade in the roster', () => {
+  test('Adding multiple students in the same grade in the roster', () => {
     expect(school.add('Blair', 2)).toEqual(true);
     expect(school.add('James', 2)).toEqual(true);
     expect(school.add('Paul', 2)).toEqual(true);
   });
 
-  xtest('Multiple students in the same grade are added to the roster', () => {
+  test('Multiple students in the same grade are added to the roster', () => {
     school.add('Blair', 2);
     school.add('James', 2);
     school.add('Paul', 2);

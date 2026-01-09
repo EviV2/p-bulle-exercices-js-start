@@ -4,12 +4,13 @@
 //
 
 export class GradeSchool {
+  effectif = []
   roster() {
-    throw new Error('Remove this line and implement the function');
+      return this.effectif
   }
 
-  add() {
-    throw new Error('Remove this line and implement the function');
+  add(obj, year) {
+    this.effectif.push(obj)
   }
 
   grade() {

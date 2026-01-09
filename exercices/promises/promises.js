@@ -3,9 +3,21 @@
 // convenience to get you started writing code faster.
 //
 
-export const promisify = () => {
-  throw new Error('Remove this line and implement the function');
+export const promisify = (fn) => {
+  return function(...args) {
+    return new Promise((resolve, reject) => {
+      fn(...args, (error, data) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(data);
+        }
+      });
+    });
+  }
 };
+ 
+
 
 export const all = () => {
   throw new Error('Remove this line and implement the function');
