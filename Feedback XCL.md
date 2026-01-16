@@ -7,3 +7,8 @@
 - (durabilité) .gitignore: OK
 
 - Globalement: ça se passe bien, ils ne vous reste plus qu'à scorer encore quelques points et assurer lors du deuxième test.
+
+
+## Final
+
+- Voir grille
